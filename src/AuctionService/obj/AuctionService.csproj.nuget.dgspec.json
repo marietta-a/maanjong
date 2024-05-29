@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj": {}
+    "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj": {
+    "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+        "projectUniqueName": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
         "projectName": "AuctionService",
-        "projectPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+        "projectPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
         "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
+        "outputPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -39,16 +39,27 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
