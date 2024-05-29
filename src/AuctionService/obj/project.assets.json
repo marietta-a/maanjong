@@ -2301,11 +2301,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+      "projectUniqueName": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
       "projectName": "AuctionService",
-      "projectPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+      "projectPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
       "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
+      "outputPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2333,6 +2333,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2373,7 +2378,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

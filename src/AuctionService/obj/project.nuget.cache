@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VppR9pHWXV6h8gFsKQzrtd/BSwJGNpGWFoiUM6eVqPJDb3iZ/DM1unC9eEmSXWp2XhFMnKvQR4LMgiFIEs+Otg==",
+  "dgSpecHash": "a6ZRNfBYkt3O8KsCCI7aUvgecEgxLD9a76OND1z0gf+HuOUDDsJQfrDx1hEIAU5Eq5zIxz7JFAHQ5VuYDuvn7A==",
   "success": true,
-  "projectFilePath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+  "projectFilePath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marie\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\marie\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
