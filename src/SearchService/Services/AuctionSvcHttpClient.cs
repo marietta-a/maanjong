@@ -15,6 +15,7 @@ namespace SearchService.Services
 
         public async Task<List<Item>> GetItemsForSearchDb()
         {
+            var tet = await DB.Find<Item, Item>().Sort(x => x.Descending(x => x.UpdatedAt)).ExecuteAsync();
             var lastUpdated = await DB.Find<Item, string>()
                 .Sort(x => x.Descending(x => x.UpdatedAt))
                 .Project(x => x.UpdatedAt.ToString())
