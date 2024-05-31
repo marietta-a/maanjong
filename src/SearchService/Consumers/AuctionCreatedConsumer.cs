@@ -20,6 +20,8 @@ namespace SearchService.Consumers
             Console.WriteLine("---> Consuming auction created: " + context.Message.Id);
             var item = _mapper.Map<Item>(context.Message);
 
+            if (item.Model == "Foo") throw new ArgumentException("Cannot save cars with name of Foo");
+
             await item.SaveAsync();
         }
     }
