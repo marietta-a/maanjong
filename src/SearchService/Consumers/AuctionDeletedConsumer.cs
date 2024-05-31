@@ -19,8 +19,6 @@ namespace SearchService.Consumers
         {
             Console.WriteLine(" ----> Consuming auction deleted");
 
-            var item = _mapper.Map<Item>(context.Message);
-
             var result = await DB.DeleteAsync<Item>(context.Message.Id);
 
             if (!result.IsAcknowledged)
