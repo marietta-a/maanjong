@@ -3112,11 +3112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+      "projectUniqueName": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
       "projectName": "AuctionService",
-      "projectPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
+      "projectPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\AuctionService.csproj",
       "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
+      "outputPath": "F:\\Projects\\microservices\\maanjong\\src\\AuctionService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -3138,8 +3138,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\microservices\\maanjong\\src\\Contracts\\Contracts.csproj": {
-              "projectPath": "D:\\Projects\\microservices\\maanjong\\src\\Contracts\\Contracts.csproj"
+            "F:\\Projects\\microservices\\maanjong\\src\\Contracts\\Contracts.csproj": {
+              "projectPath": "F:\\Projects\\microservices\\maanjong\\src\\Contracts\\Contracts.csproj"
             }
           }
         }
@@ -3148,11 +3148,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3205,7 +3200,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
