@@ -7,20 +7,23 @@ import {useParamsStore} from '../hooks/useParamStore'
 export default function Search() {
 
   const setParams = useParamsStore(state => state.setParams)
-  const [value, setValue] = useState('')
+  const setSearchValue = useParamsStore(state => state.setSearchValue)
+  const searchValue = useParamsStore(state => state.searchValue)
+  
+
 
   function onChange(event: any){
-    setValue(event.target.value)
+    setSearchValue(event.target.value)
   }
 
   function search(){
-    setParams({searchTerm: value});
-    console.log(value);
+    setParams({searchItem: searchValue});
   }
 
   return (
     <div className='flex w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
         <input
+            value={searchValue}
             type='text'
             placeholder='Search for cars by make, model or color'
             className='
