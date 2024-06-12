@@ -19,6 +19,12 @@ export const authOptions: NextAuthOptions = {
         idToken: true
       })    
   ],
+  callbacks: {
+    async jwt({token, profile, account, user}){
+        console.log({token, profile, account, user});
+        return token;
+    }
+  }
 }
 
 // export default NextAuth(authOptions)
