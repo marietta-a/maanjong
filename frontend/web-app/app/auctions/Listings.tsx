@@ -33,7 +33,6 @@ export default function Listings() {
 
   useEffect(() => {
     getData(url).then(data => {
-      console.log(data);
       setData(data);
     })
   }, [url])
