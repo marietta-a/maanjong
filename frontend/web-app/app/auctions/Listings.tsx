@@ -21,7 +21,9 @@ export default function Listings() {
     pageSize: state.pageSize,
     searchItem: state.searchItem,
     orderBy: state.orderBy,
-    filterBy: state.filterBy
+    filterBy: state.filterBy,
+    seller: state.seller,
+    winner: state.winner
   }), shallow)
 
   const setParams = useParamsStore(state => state.setParams)
@@ -32,6 +34,7 @@ export default function Listings() {
   }
 
   useEffect(() => {
+    console.log(url)
     getData(url).then(data => {
       setData(data);
     })
@@ -45,7 +48,7 @@ export default function Listings() {
       <Filters />
       {
         data.totalCount === 0 ?
-        (<EmptyFilter showReset />) :
+        (<EmptyFilter showReset title={''} />) :
         <>
           <div className='grid grid-cols-4 gap-6'>
             {data.results.map((auction) => (
