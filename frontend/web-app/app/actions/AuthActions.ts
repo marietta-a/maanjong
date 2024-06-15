@@ -4,7 +4,14 @@ import { getToken } from "next-auth/jwt";
 import { cookies, headers } from "next/headers";
 
 export async function getSession() {
-    return await getServerSession();
+    // return await getServerSession();
+    var session = await getServerSession();
+    var token = await getTokenWorkAround();
+    if(session && token){
+        session.user.username = token?.username;
+    }
+
+    return session;
 }
 
 export async function getCurrentUser(){
