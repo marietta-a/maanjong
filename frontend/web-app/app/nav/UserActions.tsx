@@ -11,7 +11,7 @@ import { HiCog, HiUser } from 'react-icons/hi'
 import { useParamsStore } from '../hooks/useParamStore'
 
 type Props = {
-  user: Partial<User>
+  user: User
 
 }
 
