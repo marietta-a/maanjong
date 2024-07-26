@@ -15,7 +15,8 @@ namespace AuctionService.Data
 
         private static void SeedData(AuctionDBContext auctionDBContext)
         {
-            auctionDBContext.Database?.Migrate();
+            Console.WriteLine(auctionDBContext);
+            auctionDBContext.Database.Migrate();
             if(auctionDBContext.Auctions.Any())
             {
                 Console.WriteLine("Aleady have data -no need to seed");
