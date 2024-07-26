@@ -1,4 +1,3 @@
-import { Label, TextInput } from 'flowbite-react'
 import React from 'react'
 import DatePicker, { DatePickerProps } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.min.css'
@@ -19,7 +18,7 @@ export default function DateInput(props: Props) {
         <DatePicker 
               {...props}
               {...field}
-              onChange={value => field.onChange(value)}
+              onChange={(value: any) => field.onChange(value)}
               selected={field.value}
               placeholderText={props?.label}
               className={`
