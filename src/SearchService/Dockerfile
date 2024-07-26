@@ -8,8 +8,10 @@ COPY maanjong.sln maanjong.sln
 COPY src/AuctionService/AuctionService.csproj /app/src/AuctionService/
 COPY src/SearchService/SearchService.csproj /app/src/SearchService/
 COPY src/GatewayService/GatewayService.csproj /app/src/GatewayService/
+COPY src/BiddingService/BiddingService.csproj /app/src/BiddingService/
 COPY src/IdentityService/IdentityService.csproj /app/src/IdentityService/
 COPY src/Contracts/Contracts.csproj /app/src/Contracts/
+COPY src/NotificationService/NotificationService.csproj /app/src/NotificationService/
 
 # Restore package deps
 RUN dotnet restore maanjong.sln
