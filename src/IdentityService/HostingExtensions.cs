@@ -2,9 +2,11 @@ using Duende.IdentityServer;
 using IdentityService.Data;
 using IdentityService.Models;
 using IdentityService.Services;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IdentityService;
 
@@ -20,6 +22,9 @@ internal static class HostingExtensions
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
+        var directory = $@"file:///{AppDomain.CurrentDomain.BaseDirectory}keys\is-signing-key-5A47D727EE77263420304817CC18EA08.json";
+        builder.Services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(directory));
 
         builder.Services
             .AddIdentityServer(options =>
@@ -39,7 +44,7 @@ internal static class HostingExtensions
             })
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+            .AddInMemoryClients(Config.Clients(builder.Configuration))
             .AddAspNetIdentity<ApplicationUser>()
             .AddProfileService<CustomProfileService>();
 

@@ -1,3 +1,9 @@
+networks:
+  custom:
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+
 services:
   postgres:
     image: postgres
@@ -7,6 +13,8 @@ services:
       - 5432:5432
     volumes:
       - /var/lib/postgresql/data
+    networks:
+      custom:
   mongodb:
     image: mongo
     environment:
@@ -16,11 +24,15 @@ services:
       - 27017:27017
     volumes:
       - /var/lib/mongodb/data
+    networks:
+      custom:
   rabbitmq:
     image: rabbitmq:3-management-alpine
     ports:
       - 5672:5672
       - 15672:15672
+    networks:
+      custom:
   auction-svc:
     image: maanjong/auction-svc:latest
     build: 
@@ -43,6 +55,8 @@ services:
     depends_on:
       - postgres
       - rabbitmq
+    networks:
+      custom:
   search-svc:
     image: maanjong/search-svc:latest
     build: 
@@ -59,6 +73,8 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
+    networks:
+      custom:
   identity-svc:
     image: maanjong/identity-svc:latest
     build: 
@@ -67,11 +83,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
+      - ClientApp=http://app.maanjong.com
       - ConnectionStrings__DefaultConnection=Server=postgres:5432;User Id=postgres;Password=postgrespw;Database=identity
-    ports:
-      - 5000:80
+      - VIRTUAL_HOST=id.maanjong.com
     depends_on:
       - postgres
+    networks:
+      custom: 
+        ipv4_address: 10.5.0.200
   gateway-svc:
     image: maanjong/gateway-svc:latest
     build: 
@@ -80,8 +99,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
-    ports:
-      - 6001:80
+      - ClientApp=http://app.maanjong.com
+      - VIRTUAL_HOST=api.maanjong.com
+    networks:
+      custom:
   bid-svc:
     image: maanjong/bid-svc:latest
     build: 
@@ -99,6 +120,8 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
+    networks:
+      custom:
   notify-svc:
     image: maanjong/notify-svc:latest
     build: 
@@ -112,6 +135,8 @@ services:
       - 7004:80
     depends_on:
       - rabbitmq
+    networks:
+      custom:
   web-app:
     image: maanjong/web-app
     build: 
@@ -121,10 +146,24 @@ services:
       - /var/lib/web/data
     ports:
       - 3000:3000
+    extra_hosts:
+      - id.maanjong.com:10.5.0.200
     environment:
       - NEXTAUTH_SECRET=somethingreallysecret
-      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_URL=http://app.maanjong.com
       - NEXTAUTH_URL_INTERNAL=http://web-app:3000
       - API_URL=http://gateway-svc/
-      - ID_URL=http://identity-svc
+      - ID_URL=http://id.maanjong.com
       - NEXT_PUBLIC_NOTIFY_URL=http://gateway-svc/notifications
+      - VIRTUAL_HOST=app.maanjong.com
+      - VIRTUAL_PORT=3000
+    networks:
+      custom: 
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - 81:80
+    networks:
+      custom: 
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
